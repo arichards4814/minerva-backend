@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_01_190509) do
+ActiveRecord::Schema.define(version: 2020_04_01_190239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,17 +34,11 @@ ActiveRecord::Schema.define(version: 2020_04_01_190509) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "materials", force: :cascade do |t|
-    t.string "url"
-    t.string "material_type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "notebooks", force: :cascade do |t|
     t.string "title"
     t.string "material_url"
     t.integer "user_id"
+    t.integer "index_of_notebook"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -53,6 +47,7 @@ ActiveRecord::Schema.define(version: 2020_04_01_190509) do
     t.integer "notebook_id"
     t.integer "material_time_stamp"
     t.string "content"
+    t.integer "index_in_notebook"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -18,10 +18,18 @@ a = User.create(username: "The_First1", email: "a@g.com", password_digest: "123"
 b = User.create(username: "Boris", email: "v@g.com", password_digest: "123")
 c = User.create(username: "Billy", email: "b@g.com", password_digest: "123")
 
-d = Curriculum.create(user_id: a.id, title: "How to Play the Drums", description: "Make your neighbors hate you!")
-e = Curriculum.create(user_id: b.id, title: "Learn Adobe Photoshop", description: "Pictures!")
-f = Curriculum.create(user_id: c.id, title: "Learn to Swim", description: "Make a splash at your next swim meeting.")
-g = Curriculum.create(user_id: c.id, title: "Golf Swing Tutorials", description: "Golf life.")
+d = Curriculum.create(user_id: a.id, title: "How to Play the Drums", description: "Make your neighbors hate you!", image_url: "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80")
+e = Curriculum.create(user_id: b.id, title: "Learn Adobe Photoshop", description: "Pictures!", image_url: "https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/bbdedd58-96bf-11e6-ab2f-00163ed833e7/1034221620/adobe-photoshop-smart-object-to-layer.png")
+f = Curriculum.create(user_id: c.id, title: "Learn to Swim", description: "Make a splash at your next swim meeting.", image_url: "https://content.active.com/Assets/Active.com+Content+Site+Digital+Assets/Fitness/Articles/5+Reasons+to+Try+Swimming/swimmer-carousel.jpg")
+g = Curriculum.create(user_id: c.id, title: "Golf Swing Tutorials", description: "Golf life.", image_url: "https://www.golf.com/wp-content/uploads/2019/12/GettyImages-1195347248-960x540.jpg")
+
+
+z = Curriculum.create(user_id: a.id, title: "How to Play the Drums", description: "Make your neighbors hate you!", image_url: "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80")
+x = Curriculum.create(user_id: b.id, title: "Learn Adobe Photoshop", description: "Pictures!", image_url: "https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/bbdedd58-96bf-11e6-ab2f-00163ed833e7/1034221620/adobe-photoshop-smart-object-to-layer.png")
+y = Curriculum.create(user_id: c.id, title: "Learn to Swim", description: "Make a splash at your next swim meeting.", image_url: "https://content.active.com/Assets/Active.com+Content+Site+Digital+Assets/Fitness/Articles/5+Reasons+to+Try+Swimming/swimmer-carousel.jpg")
+v = Curriculum.create(user_id: c.id, title: "Golf Swing Tutorials", description: "Golf life.", image_url: "https://www.golf.com/wp-content/uploads/2019/12/GettyImages-1195347248-960x540.jpg")
+
+
 
 h = Lesson.create(curriculum_id: d.id, title: "Holding the Sticks", lesson_type: "video", description: "Learn to hold the drumsticks correctly.")
 i = Lesson.create(curriculum_id: e.id, material_url: "https://www.youtube.com/watch?v=pFyOznL9UvA", title: "Intro", lesson_type: "video", description: "Learn the tools.")

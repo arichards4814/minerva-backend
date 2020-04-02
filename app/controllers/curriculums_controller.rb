@@ -2,13 +2,16 @@ class CurriculumsController < ApplicationController
     
 
     def index 
+        #using serializer
         curriculums = Curriculum.all 
         render json: curriculums
     end
 
     def show
+        #using serializer
         curriculum = Curriculum.find(params[:id])
-        render json: curriculum.to_json(include: [:lessons])
+        render json: curriculum
+        # render json: curriculum.to_json(include: [:lessons])
     end
 
     def create
