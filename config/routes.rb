@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :materials
-  resources :lessons
+  resources :lessons, only: [:create]
   resources :curriculums, only: [:index, :show, :create, :edit, :update]
   resources :notes
   resources :notebooks
