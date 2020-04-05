@@ -7,6 +7,12 @@ class CurriculumsController < ApplicationController
         render json: curriculums
     end
 
+    def userscurriculums
+        currentUser = User.find(params[:id])
+        
+        render json: currentUser.curriculums
+    end
+
     def show
         #using serializer
         curriculum = Curriculum.find(params[:id])
@@ -15,27 +21,31 @@ class CurriculumsController < ApplicationController
     end
 
     def create
-        user = Curriculum.new(curriculums_params)
+        curriculum = Curriculum.new(curriculums_params)
         
-        if user.save
-            render json: user
+        if curriculum.save
+            render json: curriculum
         else 
-            render json: {errors: user.errors.full_messages}
+            render json: {errors: curriculum.errors.full_messages}
         end
     end
 
-    def edit
-
+    def edit    
+        curriculum = Curriculum.find(params[:id])
+        render json: curriculum
     end
 
     def update
+        curriculum = Curriculum.find(params[:id])
+        curriculum.update(curriculums_params)
 
+        render json: curriculum
     end
 
     private 
 
     def curriculums_params
-        params.require(:curriculum).permit(:user_id, :title, :description, :image_url)
+        params.require(:curriculum).permit(:id, :user_id, :title, :description, :image_url)
     end
 
 end
