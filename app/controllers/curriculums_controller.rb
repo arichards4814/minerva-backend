@@ -42,6 +42,13 @@ class CurriculumsController < ApplicationController
         render json: curriculum
     end
 
+
+    def destroy 
+        curriculum = Curriculum.find(params[:id])
+        curriculum.destroy()
+
+    end
+
     private 
 
     def curriculums_params
