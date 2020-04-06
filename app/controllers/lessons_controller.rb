@@ -10,6 +10,13 @@ class LessonsController < ApplicationController
         end
     end
 
+    def update
+        lesson = Lesson.find(params[:id])
+
+        lesson.update(lessons_params)
+        render json: lesson
+    end
+
     private
 
 
