@@ -12,10 +12,28 @@ class NotebooksController < ApplicationController
         render json: notebook
     end
 
+
+    def create
+        notebook = Notebook.new(notebooks_params)
+        
+        if notebook.save
+            render json: notebook
+        else 
+            render json: {errors: notebook.errors.full_messages}
+        end
+    end
+
     def usersnotebooks
         currentUser = User.find(params[:id])
         
         render json: currentUser.notebooks
     end
         
+    private
+
+
+    def notebooks_params
+        params.require(:notebook).permit(:user_id, :material_url, :title)
+    end
+
 end
