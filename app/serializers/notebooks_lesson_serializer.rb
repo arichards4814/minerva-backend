@@ -1,0 +1,14 @@
+class NotebooksLessonSerializer < ActiveModel::Serializer
+  attributes :user, :lessons, :notebooks
+   def user
+    {
+      id: self.object.user.id,
+      username: self.object.user.username,
+    }
+  end
+  def curriculum
+    {
+      lessons: self.object.curriculum.lessons
+    }
+    end
+end

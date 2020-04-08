@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :notebooks_lessons
   resources :lessons, only: [:create, :update, :destroy]
   resources :curriculums, only: [:index, :show, :create, :edit, :update, :destroy]
   resources :notes, only: [:create, :destroy]
@@ -10,5 +11,7 @@ Rails.application.routes.draw do
   get 'userscurriculums/:id', to: 'curriculums#userscurriculums'
   get 'usersnotebooks/:id', to: 'notebooks#usersnotebooks'
   get 'userssubscriptions/:id', to: 'subscriptions#userssubscriptions'
+
+  get 'lessonsnotebooks/:id', to: 'lessons#lessonsnotebooks'
 
 end

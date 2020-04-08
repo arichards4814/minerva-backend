@@ -1,0 +1,3 @@
+class NotebooksLessonsController < ApplicationController
+   
+end

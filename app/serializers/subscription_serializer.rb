@@ -8,7 +8,17 @@ class SubscriptionSerializer < ActiveModel::Serializer
   end
   def curriculum
     {
-      lessons: self.object.curriculum.lessons
+      id: self.object.curriculum.id,
+      title: self.object.curriculum.title,
+      description: self.object.curriculum.description,
+      lessons: notebooks
     }
-    end
+  end
+
+  def notebooks 
+      self.object.curriculum.lessons.map do |lesson|
+        LessonSerializer.new(lesson).attributes
+      end
+  end
+  # self.object.curriculum.lessons
 end
