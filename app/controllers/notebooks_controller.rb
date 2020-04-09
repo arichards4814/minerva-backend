@@ -23,6 +23,13 @@ class NotebooksController < ApplicationController
         end
     end
 
+    def update 
+        notebook = Notebook.find(params[:id])
+        notebook.update(notebooks_params)
+
+        render json: notebook
+    end
+
     def usersnotebooks
         currentUser = User.find(params[:id])
         

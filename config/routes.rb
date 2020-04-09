@@ -14,4 +14,6 @@ Rails.application.routes.draw do
 
   get 'lessonsnotebooks/:id', to: 'lessons#lessonsnotebooks'
 
+  post 'notebookslessons', to: 'notebooks_lessons#create'
+
 end
