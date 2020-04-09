@@ -16,4 +16,6 @@ Rails.application.routes.draw do
 
   post 'notebookslessons', to: 'notebooks_lessons#create'
 
+  post 'curriculums/:id/image', to: 'curriculums#uploadimage'
+
 end

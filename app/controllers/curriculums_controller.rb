@@ -30,6 +30,12 @@ class CurriculumsController < ApplicationController
         end
     end
 
+     def uploadimage
+        @item = Curriculum.find(params[:id])
+        @item.image.attach(params[:image])
+        @item.save
+    end
+
     def edit    
         curriculum = Curriculum.find(params[:id])
         render json: curriculum
