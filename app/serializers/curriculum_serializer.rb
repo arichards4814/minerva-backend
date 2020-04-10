@@ -1,6 +1,6 @@
 class CurriculumSerializer < ActiveModel::Serializer
   has_one :user
-  attributes :id, :title, :description, :image_url, :lessons, :image
+  attributes :id, :title, :description, :image_url, :lessons, :image, :tags
    def user
     {
       id: self.object.user.id,

@@ -1,0 +1,2 @@
+class CurriculumstagsController < ApplicationController
+end

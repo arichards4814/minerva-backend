@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :curriculumstags
+  resources :tags
   resources :notebooks_lessons
   resources :lessons, only: [:create, :update, :destroy]
   resources :curriculums, only: [:index, :show, :create, :edit, :update, :destroy]
