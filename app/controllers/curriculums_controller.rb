@@ -33,6 +33,9 @@ class CurriculumsController < ApplicationController
      def uploadimage
         @item = Curriculum.find(params[:id])
         @item.image.attach(params[:image])
+        puts "0000000000000000000000"
+        puts @item.image.attached?
+        puts "0000000000000000000000"
         @item.save
     end
 

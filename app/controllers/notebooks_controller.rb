@@ -11,6 +11,18 @@ class NotebooksController < ApplicationController
         notebook = Notebook.find(params[:id])
         render json: notebook
     end
+    
+    def pin
+        notebook = Notebook.find(params[:id])
+        notebook.update(pinned: true)
+        render json: notebook
+    end
+
+    def unpin
+        notebook = Notebook.find(params[:id])
+        notebook.update(pinned: false)
+        render json: notebook
+    end
 
 
     def create

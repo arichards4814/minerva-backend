@@ -18,4 +18,7 @@ Rails.application.routes.draw do
 
   post 'curriculums/:id/image', to: 'curriculums#uploadimage'
 
+  post '/pin/:id', to: 'notebooks#pin'
+  post '/unpin/:id', to: 'notebooks#unpin'
+
 end
