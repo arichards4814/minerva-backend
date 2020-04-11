@@ -22,5 +22,6 @@ Rails.application.routes.draw do
 
   post '/pin/:id', to: 'notebooks#pin'
   post '/unpin/:id', to: 'notebooks#unpin'
+  post '/login', to: 'users#login'
 
 end
