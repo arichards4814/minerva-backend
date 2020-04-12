@@ -30,13 +30,30 @@ class CurriculumsController < ApplicationController
         end
     end
 
-     def uploadimage
-        @item = Curriculum.find(params[:id])
-        @item.image.attach(params[:image])
-        puts "0000000000000000000000"
-        puts @item.image.attached?
-        puts "0000000000000000000000"
-        @item.save
+    #  def uploadimage
+    #     @item = Curriculum.find(params[:id])
+    #     puts @item
+    #     puts params
+    #     @item.image.attach(params[:image])
+
+    #     if @item.image.attached?
+    #         render json: @item
+    #     else 
+    #         render json: {errors: @item.errors.full_messages}
+    #     end
+    # end
+    def uploadimage
+        if params[:file]
+        # The data is a file upload coming from <input type="file" />
+            @curriculum = Curriculum.find(params[:id])
+            @curriculum.image.attach(params[:file])
+            # Generate a url for easy display on the front end 
+            photo = url_for(@curriculum.image)
+        end
+         # Now save that url in the profile
+        if @curriculum.update(image_url: photo)
+            render json: @curriculum, status: :ok
+        end
     end
 
     def edit    
