@@ -18,7 +18,12 @@ class SubscriptionSerializer < ActiveModel::Serializer
   def notebooks 
       self.object.curriculum.lessons.map do |lesson|
         LessonSerializer.new(lesson).attributes
+        ## NEED TO GET THIS PARTICULAR USERS LESSONS
       end
   end
   # self.object.curriculum.lessons
+
+  # notebooks.select do |notebook|
+  #    notebook[:user_id] === self.object.user.id
+  #end
 end
