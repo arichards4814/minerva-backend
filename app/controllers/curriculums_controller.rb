@@ -23,25 +23,20 @@ class CurriculumsController < ApplicationController
     def create
         curriculum = Curriculum.new(curriculums_params)
         
+            # curriculum = Curriculum.find(params[:id])
+            # Generate a url for easy display on the front end 
+           
+        # curriculum.image.attach(params[:image])
+
         if curriculum.save
+            photo = url_for(curriculum.image)
+            curriculum.update(image_url: photo)
             render json: curriculum
         else 
             render json: {errors: curriculum.errors.full_messages}
         end
     end
 
-    #  def uploadimage
-    #     @item = Curriculum.find(params[:id])
-    #     puts @item
-    #     puts params
-    #     @item.image.attach(params[:image])
-
-    #     if @item.image.attached?
-    #         render json: @item
-    #     else 
-    #         render json: {errors: @item.errors.full_messages}
-    #     end
-    # end
     def uploadimage
         if params[:file]
         # The data is a file upload coming from <input type="file" />
@@ -78,7 +73,7 @@ class CurriculumsController < ApplicationController
     private 
 
     def curriculums_params
-        params.require(:curriculum).permit(:id, :user_id, :title, :description, :image_url)
+        params.require(:curriculum).permit(:id, :user_id, :title, :description, :image_url, :image)
     end
 
 end
