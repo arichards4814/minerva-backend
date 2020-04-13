@@ -25,8 +25,7 @@ class CurriculumsController < ApplicationController
         
             # curriculum = Curriculum.find(params[:id])
             # Generate a url for easy display on the front end 
-           
-        # curriculum.image.attach(params[:image])
+            # curriculum.image.attach(params[:image])
 
         if curriculum.save
             photo = url_for(curriculum.image)
