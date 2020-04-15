@@ -8,6 +8,6 @@ class Curriculum < ApplicationRecord
     has_many :tags, through: :curriculumstags
 
 
-  validates :title, length: { maximum: 20 }
+  validates :title, length: { maximum: 40 }
   validates :description, length: { maximum: 200 }
 end

@@ -6,5 +6,5 @@ class Notebook < ApplicationRecord
     has_many :lessons, through: :notebooks_lessons
 
 
-  validates :title, length: { maximum: 20 }
+  validates :title, length: { maximum: 40 }
 end
