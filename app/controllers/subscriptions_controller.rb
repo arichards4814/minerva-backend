@@ -14,6 +14,10 @@ class SubscriptionsController < ApplicationController
     def userssubscriptions
         currentUser = User.find(params[:id])
         
+        puts "-----------------------------"
+        puts(currentUser)
+        puts "-----------------------------"
+
         render json: currentUser.subscriptions
     end
 

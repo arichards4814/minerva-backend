@@ -1,26 +1,34 @@
 class SubscriptionSerializer < ActiveModel::Serializer
   attributes :curriculum, :user
-   def user
+  
+  def curriculum
+
+        puts "-----------------------------"
+        puts "subscription serializer"
+        puts "-----------------------------"
+        puts self.object.curriculum
+        puts self.object.curriculum.id
+    {
+      id: self.object.curriculum.id,
+      title: self.object.curriculum.title,
+      description: self.object.curriculum.description,
+      lessons: self.object.curriculum.lessons
+    }
+  end
+ def user
     {
       id: self.object.user.id,
       username: self.object.user.username,
     }
   end
-  def curriculum
-    {
-      id: self.object.curriculum.id,
-      title: self.object.curriculum.title,
-      description: self.object.curriculum.description,
-      lessons: notebooks
-    }
-  end
+  
 
-  def notebooks 
-      self.object.curriculum.lessons.map do |lesson|
-        LessonSerializer.new(lesson).attributes
-        ## NEED TO GET THIS PARTICULAR USERS LESSONS
-      end
-  end
+  # def notebooks 
+  #     self.object.curriculum.lessons.map do |lesson|
+  #       LessonSerializer.new(lesson).attributes
+  #       ## NEED TO GET THIS PARTICULAR USERS LESSONS
+  #     end
+  # end
   # self.object.curriculum.lessons
 
   # notebooks.select do |notebook|

@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   post '/unpin/:id', to: 'notebooks#unpin'
   post '/login', to: 'users#login'
 
+  get '/securelogin', to: 'auth#login'
+
 end

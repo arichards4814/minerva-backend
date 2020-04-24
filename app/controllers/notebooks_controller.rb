@@ -27,7 +27,9 @@ class NotebooksController < ApplicationController
 
     def create
         notebook = Notebook.new(notebooks_params)
-        
+        puts "-----------------"
+        puts request.headers["Authorization"]
+        puts "-----------------"
         if notebook.save
             render json: notebook
         else 
