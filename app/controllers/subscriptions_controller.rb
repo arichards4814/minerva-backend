@@ -12,6 +12,11 @@ class SubscriptionsController < ApplicationController
     end
 
     def userssubscriptions
+
+        puts "-----------------------------"
+        puts params
+        puts "-----------------------------"
+        puts "-----------------------------"
         currentUser = User.find(params[:id])
         
         puts "-----------------------------"

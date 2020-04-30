@@ -65,6 +65,7 @@ class CurriculumsController < ApplicationController
 
     def destroy 
         curriculum = Curriculum.find(params[:id])
+        curriculum.subscriptions.destroy_all()
         curriculum.destroy()
 
     end

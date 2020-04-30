@@ -2,12 +2,6 @@ class SubscriptionSerializer < ActiveModel::Serializer
   attributes :curriculum, :user
   
   def curriculum
-
-        puts "-----------------------------"
-        puts "subscription serializer"
-        puts "-----------------------------"
-        puts self.object.curriculum
-        puts self.object.curriculum.id
     {
       id: self.object.curriculum.id,
       title: self.object.curriculum.title,
