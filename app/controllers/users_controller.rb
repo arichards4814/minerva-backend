@@ -8,8 +8,12 @@ class UsersController < ApplicationController
     def login
         user = User.find_by(username: params[:username])
 
+        
+
         if user && user.authenticate(params[:password])
-            render json: user
+            #JWT authentication here... send the token 
+            token = JWT.encode({user_id: user.id}, "super_secret_code")
+            render json: {user: user, token: token}
         else
             render json: {errors: "Incorrect username or password."}
         end
@@ -20,7 +24,9 @@ class UsersController < ApplicationController
         puts user
 
         if user.save
-            render json: user
+            #JWT authentication here... send the token 
+            token = JWT.encode({user_id: user.id}, "super_secret_code")
+            render json: {user: user, token: token}
         else 
             puts user.errors.full_messages
             render json: {errors: user.errors.full_messages}

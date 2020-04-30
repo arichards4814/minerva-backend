@@ -26,10 +26,12 @@ class NotebooksController < ApplicationController
 
 
     def create
-        notebook = Notebook.new(notebooks_params)
-        puts "-----------------"
-        puts request.headers["Authorization"]
-        puts "-----------------"
+        notebook = Notebook.new({
+            material_url: notebooks_params[:material_url],
+            title: notebooks_params[:title],
+            user_id: session_user.id})
+        
+    
         if notebook.save
             render json: notebook
         else 
