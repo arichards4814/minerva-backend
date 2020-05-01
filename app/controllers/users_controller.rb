@@ -8,8 +8,6 @@ class UsersController < ApplicationController
     def login
         user = User.find_by(username: params[:username])
 
-        
-
         if user && user.authenticate(params[:password])
             #JWT authentication here... send the token 
             token = JWT.encode({user_id: user.id}, "super_secret_code")
@@ -20,7 +18,7 @@ class UsersController < ApplicationController
     end
 
     def create 
-        user = User.new(username: params[:username], email: params[:email], password: params[:password])
+        user = User.new(username: params[:username].downcase, email: params[:email], password: params[:password])
         puts user
 
         if user.save
