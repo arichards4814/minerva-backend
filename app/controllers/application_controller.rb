@@ -13,11 +13,22 @@ class ApplicationController < ActionController::API
     end
 
 
+    def get_tweet_header
+        puts "---------"
+        puts request.headers["TweetUrl"]
+        puts "---------"
+        request.headers["TweetUrl"]
+    end
+
+
     def fetch_tweet
         #BASE_URL = ""
-        request = HTTParty.get('https://publish.twitter.com/oembed?url=https://twitter.com/shl/status/1257669211997917186')
+
+        #x = HTTParty.get("https://publish.twitter.com/oembed?url=https://twitter.com/shl/status/1257669211997917186")
+
+        x = HTTParty.get("https://publish.twitter.com/oembed?url=#{get_tweet_header}")
         
-        render json: request
+        render json: x
     end
 
 end
