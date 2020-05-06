@@ -26,4 +26,6 @@ Rails.application.routes.draw do
 
   get '/securelogin', to: 'auth#login'
 
+  get '/tweet', to: 'application#fetch_tweet'
+
 end

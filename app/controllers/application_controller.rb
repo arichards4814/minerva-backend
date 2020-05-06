@@ -12,4 +12,12 @@ class ApplicationController < ActionController::API
         User.find_by(id: decoded_token)
     end
 
+
+    def fetch_tweet
+        #BASE_URL = ""
+        request = HTTParty.get('https://publish.twitter.com/oembed?url=https://twitter.com/shl/status/1257669211997917186')
+        
+        render json: request
+    end
+
 end
