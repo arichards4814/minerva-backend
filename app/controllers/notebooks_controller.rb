@@ -51,6 +51,11 @@ class NotebooksController < ApplicationController
         
         render json: currentUser.notebooks
     end
+
+    def destroy 
+        notebook = Notebook.find(params[:id])
+        notebook.destroy()
+    end
         
     private
 
