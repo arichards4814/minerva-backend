@@ -2,7 +2,7 @@ class NotebooksLessonsController < ApplicationController
    
     def create
         notebookslessons = NotebooksLesson.new(notebooks_lessons_params)
-
+        
         if(request.headers["ReplaceMaterial"])
                l = Lesson.find(notebooks_lessons_params[:lesson_id])
                n = Notebook.find(notebooks_lessons_params[:notebook_id])
