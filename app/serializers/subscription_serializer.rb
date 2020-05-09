@@ -6,7 +6,8 @@ class SubscriptionSerializer < ActiveModel::Serializer
       id: self.object.curriculum.id,
       title: self.object.curriculum.title,
       description: self.object.curriculum.description,
-      lessons: self.object.curriculum.lessons
+      # lessons: self.object.curriculum.lessons
+      lessons: notebooks
     }
   end
  def user
@@ -17,12 +18,12 @@ class SubscriptionSerializer < ActiveModel::Serializer
   end
   
 
-  # def notebooks 
-  #     self.object.curriculum.lessons.map do |lesson|
-  #       LessonSerializer.new(lesson).attributes
-  #       ## NEED TO GET THIS PARTICULAR USERS LESSONS
-  #     end
-  # end
+  def notebooks 
+      self.object.curriculum.lessons.map do |lesson|
+        LessonSerializer.new(lesson).attributes
+        ## NEED TO GET THIS PARTICULAR USERS LESSONS
+      end
+  end
   # self.object.curriculum.lessons
 
   # notebooks.select do |notebook|
