@@ -28,8 +28,10 @@ class CurriculumsController < ApplicationController
             # curriculum.image.attach(params[:image])
 
         if curriculum.save
-            photo = url_for(curriculum.image)
-            curriculum.update(image_url: photo)
+            if curriculums_params[:image]
+                photo = url_for(curriculum.image)
+                curriculum.update(image_url: photo)
+            end
             render json: curriculum
         else 
             render json: {errors: curriculum.errors.full_messages}
