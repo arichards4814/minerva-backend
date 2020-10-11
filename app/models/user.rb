@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     has_many :notebooks
     has_many :curriculums
+    has_many :studybuds
 
     has_many :subscriptions
 

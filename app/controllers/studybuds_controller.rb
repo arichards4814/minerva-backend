@@ -1,0 +1,8 @@
+class StudybudsController < ApplicationController
+
+
+
+
+
+
+end
