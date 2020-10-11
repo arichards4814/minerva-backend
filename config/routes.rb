@@ -8,11 +8,13 @@ Rails.application.routes.draw do
   resources :notebooks
   resources :users
   resources :subscriptions
+  resources :studybuds
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   get 'userscurriculums/:id', to: 'curriculums#userscurriculums'
   get 'usersnotebooks/:id', to: 'notebooks#usersnotebooks'
   get 'userssubscriptions/:id', to: 'subscriptions#userssubscriptions'
+  get 'usersstudybuds/:id', to: 'studybuds#usersstudybuds'
 
   get 'lessonsnotebooks/:id', to: 'lessons#lessonsnotebooks'
 
@@ -27,5 +29,6 @@ Rails.application.routes.draw do
   get '/securelogin', to: 'auth#login'
 
   get '/tweet', to: 'application#fetch_tweet'
+
 
 end
